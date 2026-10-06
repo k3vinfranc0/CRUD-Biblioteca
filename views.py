@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
-from .models import Usuario, Libro, Prestamo
-from .serializers import UsuarioSerializer, LibroSerializer, PrestamoSerializer
+from models import Usuario, Libro, Prestamo
+from serializers import UsuarioSerializer, LibroSerializer, PrestamoSerializer
 
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()

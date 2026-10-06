@@ -8,6 +8,9 @@ class Usuario(models.Model):
     direccion = models.CharField(max_length=150)
     celular = models.CharField(max_length=20)
     correo = models.EmailField(unique=True)
+    
+    class Meta:
+        app_label = 'config'
 
     def __str__(self):
         return f"{self.nombre} ({self.numeroDocumento})"
@@ -20,6 +23,9 @@ class Libro(models.Model):
     tematica = models.CharField(max_length=100)
     resumen = models.TextField()
     numeroCopias = models.IntegerField(default=1)
+    
+    class Meta:
+        app_label = 'config'
 
     def __str__(self):
         return self.nombreLibro
@@ -29,6 +35,9 @@ class Prestamo(models.Model):
     libro = models.ForeignKey(Libro, on_delete=models.CASCADE, db_column='codigoLibro')
     fechaPrestamo = models.DateField(auto_now_add=True)
     fechaEntrega = models.DateField()
+    
+    class Meta:
+        app_label = 'config'
 
     def __str__(self):
         return f"Prestamo: {self.libro.nombreLibro} a {self.usuario.nombre}"              
